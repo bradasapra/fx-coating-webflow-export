@@ -1465,6 +1465,64 @@ p:last-child {
   border-top: 1px solid var(--color-neutral-border);
 }
 
+/* --- System Detail Content & FAQ --- */
+.system-detail__content {
+  max-width: var(--max-width-narrow);
+}
+
+.system-detail__content h2 {
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-md);
+}
+
+.system-detail__content h3 {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+}
+
+.system-detail__content ul {
+  list-style: disc;
+  padding-left: var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.system-detail__content ul li {
+  margin-bottom: var(--space-sm);
+  line-height: 1.7;
+}
+
+.system-detail__specs {
+  margin: var(--space-2xl) 0;
+}
+
+.system-detail__faq {
+  margin-top: var(--space-2xl);
+}
+
+/* --- Hero Short Variant --- */
+.hero--short {
+  min-height: 300px;
+  padding: var(--space-2xl) 0;
+}
+
+/* --- Contact Form Layout --- */
+.contact-form {
+  max-width: 600px;
+}
+
+/* --- Footer Logo (reduce inline styles) --- */
+.site-logo--footer {
+  color: var(--color-neutral-white);
+  font-size: 1.3rem;
+  display: inline-block;
+  margin-bottom: var(--space-md);
+}
+
+/* --- Team Placeholder Photos --- */
+.placeholder-img--square {
+  aspect-ratio: 1 / 1;
+}
+
 /* Two-column dropdown for Systems */
 .dropdown--two-col {
   min-width: 380px;
