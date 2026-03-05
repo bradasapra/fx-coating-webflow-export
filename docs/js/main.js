@@ -1,30 +1,26 @@
-/* ============================================
-   FX Coating Ltd. — Main JavaScript
-   ============================================ */
+/* FX Coating Ltd. — Main JS */
 
 (function () {
   'use strict';
 
-  // --- Mobile Nav Toggle ---
-  var navToggle = document.querySelector('.nav-toggle');
-  var mainNav = document.querySelector('.main-nav');
+  /* --- Mobile Nav Toggle --- */
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.querySelector('.main-nav');
 
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', function () {
-      navToggle.classList.toggle('is-active');
-      mainNav.classList.toggle('is-open');
-      var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      toggle.classList.toggle('is-active');
+      nav.classList.toggle('is-open');
+      var expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
     });
   }
 
-  // --- Mobile Dropdown Toggles ---
-  var dropdownParents = document.querySelectorAll('.main-nav__item');
+  /* --- Mobile Dropdown Toggle --- */
+  var dropdownParents = document.querySelectorAll('.main-nav__item--has-dropdown');
   dropdownParents.forEach(function (item) {
     var link = item.querySelector('.main-nav__link');
-    var dropdown = item.querySelector('.dropdown');
-    if (!link || !dropdown) return;
-
+    if (!link) return;
     link.addEventListener('click', function (e) {
       if (window.innerWidth < 768) {
         e.preventDefault();
@@ -33,59 +29,46 @@
     });
   });
 
-  // --- FAQ Accordion ---
+  /* --- FAQ Accordion --- */
   var faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(function (item) {
     var question = item.querySelector('.faq-item__question');
     if (!question) return;
-
     question.addEventListener('click', function () {
-      var wasOpen = item.classList.contains('is-open');
-
-      // Close all others in same parent
-      var siblings = item.parentElement.querySelectorAll('.faq-item');
-      siblings.forEach(function (sibling) {
-        sibling.classList.remove('is-open');
-      });
-
-      if (!wasOpen) {
-        item.classList.add('is-open');
-      }
+      var isOpen = item.classList.contains('is-open');
+      // Close all
+      faqItems.forEach(function (other) { other.classList.remove('is-open'); });
+      if (!isOpen) item.classList.add('is-open');
     });
   });
 
-  // --- Contact Form Multi-Step ---
-  var form = document.getElementById('contact-form');
-  if (form) {
-    var step1 = document.getElementById('form-step-1');
-    var step2 = document.getElementById('form-step-2');
-    var successMsg = document.getElementById('form-success');
-    var nextBtn = document.getElementById('form-next');
-    var backBtn = document.getElementById('form-back');
-    var submitBtn = document.getElementById('form-submit');
+  /* --- Contact Form Step Toggle --- */
+  var formNextBtn = document.querySelector('.form-next');
+  var formBackBtn = document.querySelector('.form-back');
+  var formSubmitBtn = document.querySelector('.form-submit');
+  var step1 = document.querySelector('.form-step--1');
+  var step2 = document.querySelector('.form-step--2');
+  var formSuccess = document.querySelector('.form-success');
 
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (step1) step1.classList.remove('is-active');
-        if (step2) step2.classList.add('is-active');
-      });
-    }
+  if (formNextBtn && step1 && step2) {
+    formNextBtn.addEventListener('click', function () {
+      step1.classList.remove('is-active');
+      step2.classList.add('is-active');
+    });
+  }
 
-    if (backBtn) {
-      backBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (step2) step2.classList.remove('is-active');
-        if (step1) step1.classList.add('is-active');
-      });
-    }
+  if (formBackBtn && step1 && step2) {
+    formBackBtn.addEventListener('click', function () {
+      step2.classList.remove('is-active');
+      step1.classList.add('is-active');
+    });
+  }
 
-    if (submitBtn) {
-      submitBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (step2) step2.classList.remove('is-active');
-        if (successMsg) successMsg.classList.add('is-active');
-      });
-    }
+  if (formSubmitBtn && step2 && formSuccess) {
+    formSubmitBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      step2.classList.remove('is-active');
+      formSuccess.classList.add('is-active');
+    });
   }
 })();
