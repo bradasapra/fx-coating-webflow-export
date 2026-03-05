@@ -50,22 +50,22 @@ table {
 
 /* --- CSS Custom Properties --- */
 :root {
-  /* Colors */
-  --color-primary-dark: #1a1a2e;
-  --color-primary-accent: #d35400;
-  --color-primary-accent-hover: #b94700;
-  --color-secondary-accent: #e67e22;
+  /* Colors — derived from FX Coating logo (red, purple, charcoal) */
+  --color-primary-dark: #333333;
+  --color-primary-accent: #EE2D3D;
+  --color-primary-accent-hover: #d4212f;
+  --color-secondary-accent: #B55CA4;
   --color-neutral-light: #f5f3f0;
   --color-neutral-white: #ffffff;
   --color-neutral-mid: #8c8c8c;
   --color-neutral-border: #d4d0cb;
   --color-text-body: #3a3a3a;
   --color-text-light: #6b6b6b;
-  --color-cta: #d35400;
-  --color-cta-hover: #b94700;
+  --color-cta: #EE2D3D;
+  --color-cta-hover: #d4212f;
   --color-success: #27ae60;
-  --color-dark-bg: #16213e;
-  --color-overlay: rgba(26, 26, 46, 0.85);
+  --color-dark-bg: #2b2b2b;
+  --color-overlay: rgba(51, 51, 51, 0.85);
 
   /* Typography */
   --font-heading: 'Oswald', sans-serif;
@@ -638,7 +638,7 @@ p:last-child {
 
 /* --- Numbers Strip --- */
 .numbers-strip {
-  background-color: var(--color-primary-accent);
+  background: linear-gradient(135deg, #EE2D3D 0%, #B55CA4 100%);
   color: var(--color-neutral-white);
   padding: var(--space-2xl) 0;
 }
@@ -906,7 +906,7 @@ p:last-child {
   width: 64px;
   height: 64px;
   margin: 0 auto var(--space-lg);
-  background-color: rgba(211, 84, 0, 0.1);
+  background-color: rgba(238, 45, 61, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1117,7 +1117,7 @@ p:last-child {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-primary-accent);
-  box-shadow: 0 0 0 3px rgba(211, 84, 0, 0.1);
+  box-shadow: 0 0 0 3px rgba(238, 45, 61, 0.1);
 }
 
 .form-success {
